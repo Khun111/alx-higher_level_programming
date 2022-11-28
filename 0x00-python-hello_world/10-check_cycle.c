@@ -1,4 +1,9 @@
-include "lists.h"
+#include "lists.h"
+/**
+ * check_cycle - checks for a cycle in a list
+ * @list: list to check
+ * Return: 0/1
+ */
 int check_cycle(listint_t *list)
 {
 	listint_t *slow_p, *fast_p;
@@ -13,7 +18,7 @@ int check_cycle(listint_t *list)
 		if (slow_p == fast_p)
 			return (1);
 		slow_p = slow_p->next;
-		fast_p = fast_p->next;
+		fast_p = fast_p->next->next;
 	}
 	return (0);
 }
