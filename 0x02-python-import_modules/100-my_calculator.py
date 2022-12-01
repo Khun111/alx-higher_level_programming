@@ -6,7 +6,7 @@ if __name__ == "__main__":
     if argc != 3:
         print('Usage: ./100-my_calculator.py <a> <operator> <b')
         sys.exit(1)
-    opdict = {'+' : add, '-' : sub, '*' : mul, '/' : div}
+    opdict = {'+': add, '-': sub, '*': mul, '/': div}
     if sys.argv[2] not in list(opdict.keys()):
         print('Unknown operator. Available operators: +, -, * and /')
         sys.exit(1)
