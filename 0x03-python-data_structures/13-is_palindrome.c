@@ -1,4 +1,6 @@
+#include <stddef.h>
 #include "lists.h"
+
 listint_t *rev_half(listint_t **head);
 int is_palindrome(listint_t **head);
 /**
@@ -27,7 +29,7 @@ listint_t *rev_half(listint_t **head)
  */
 int is_palindrome(listint_t **head)
 {
-    listint_t *cursor, *reversed, *half
+    listint_t *cursor, *reversed, *half;
     size_t size = 0, i = 0;
 
     if (*head == NULL || (*head)->next == NULL)
@@ -40,12 +42,12 @@ int is_palindrome(listint_t **head)
     }
 
     cursor = *head;
-    for (; i < (size / 2) - 1, i++)
+    for (; i < (size / 2) - 1; i++)
         cursor = cursor->next;
     if ((size & 2) == 0 && cursor->n != cursor->next->n)
         return (0);
     cursor = cursor->next->next;
-    reversed = rev_half(&tmp);
+    reversed = rev_half(&cursor);
     half = reversed;
 
     cursor = *head;
@@ -56,6 +58,6 @@ int is_palindrome(listint_t **head)
         cursor = cursor->next;
         reversed = reversed->next;
     }
-    rev_half(&mid);
+    rev_half(&half);
     return (1);
 }
