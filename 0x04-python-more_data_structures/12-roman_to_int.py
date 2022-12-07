@@ -15,8 +15,8 @@ def roman_to_int(roman_string):
     for i in range(len(roman_string)):
         if numeral_dict.get(roman_string[i], 0) == 0:
             return (0)
-        if i != len(roman_string) - 1 and
-        numeral_dict[roman_string[i]] < numeral_dict[roman_string[i + 1]]:
+        if (i != (len(roman_string) - 1) and
+                numeral_dict[roman_string[i]] < numeral_dict[roman_string[i + 1]]):
             inte += numeral_dict[roman_string[i]] * -1
         else:
             inte += numeral_dict[roman_string[i]]
