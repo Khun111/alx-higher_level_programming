@@ -32,7 +32,7 @@ void print_python_bytes(PyObject *p)
 	}
 	printf("[*] Python bytes info\n");
 	printf("[*] Size of the Python bytes object = %lu\n", PyBytes_Size(p));
-	printf("[*] First %d bytes:", PyBytes_Size(p) > 10 ? 10 : PyBytes_Size(p));
+	printf("[*] First %zu bytes:", PyBytes_Size(p) > 10 ? 10 : PyBytes_Size(p));
 	for (unsigned char i = 0; i < PyBytes_Size(p) && i < 10; i++)
 		printf(" %02x", (unsigned char)PyBytes_AsString(p)[i]);
 	printf("\n");
