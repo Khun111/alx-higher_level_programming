@@ -8,6 +8,7 @@ class Square:
         '''Instantiate the class.
         Args:
             size: Size of the square.
+            position: Coordinate to place #
         '''
         if not isinstance(size, int):
             raise TypeError('size must be an integer')
