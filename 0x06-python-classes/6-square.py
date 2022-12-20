@@ -35,7 +35,7 @@ class Square:
     def position(self):
         return self.__position
 
-    @size.setter
+    @position.setter
     def position(self, value):
         try:
             self.__position == value
