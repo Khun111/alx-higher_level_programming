@@ -1,0 +1,11 @@
+Tests for dividing matrix
+>>> module = __import__('2-matrix_divided')
+>>> div_mat = module.matrix_divided
+>>> len(module.__doc__) > 1
+True
+>>> len(div_mat.__doc__) > 1
+True
+>>> div_mat([6, 5, 'school'], 2)
+Traceback (most recent call last):
+...
+TypeError: matrix must be a matrix (list of lists) of integers/floats
