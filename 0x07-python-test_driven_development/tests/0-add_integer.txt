@@ -17,5 +17,17 @@ TypeError: a must be an integer
 Traceback (most recent call last):
 ...
 TypeError: b must be an integer
+>>> add('word', 'school')
+Traceback (most recent call last):
+...
+TypeError: a must be an integer
+>>> add(float('nan'))
+Traceback (most recent call last):
+...
+ValueError: cannot convert float NaN to integer
 >>> add(2, 3)
 5
+>>> add(2, 3.8)
+5
+>>> add(0)
+98
