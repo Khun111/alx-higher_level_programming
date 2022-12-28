@@ -1,28 +1,32 @@
 Matrix multiplication test
->>> module = __import__('100-matrix_mul')
->>> matrix_mul = module.matrix_mul
+>>> module = __import__('101-lazy_matrix_mul')
+>>> lazy_matrix_mul = module.lazy_matrix_mul
 >>> len(module.__doc__) > 1
 True
->>> len(matrix_mul.__doc__) > 1
+>>> len(lazy_matrix_mul.__doc__) > 1
 True
 
 # Test valid matrix multiplication
 >>> m_a = [[1, 2, 3], [4, 5, 6]]
 >>> m_b = [[7, 8], [9, 10], [11, 12]]
->>> matrix_mul(m_a, m_b)
-[[58, 64], [139, 154]]
+>>> print(lazy_matrix_mul([[1, 2], [3, 4]], [[1, 2], [3, 4]]))
+[[ 7 10]
+ [15 22]]
+
+>>> print(lazy_matrix_mul([[1, 2]], [[3, 4], [5, 6]]))
+[[13 16]]
 
 # Test invalid input: m_a not a list
 >>> m_a = 'invalid'
 >>> m_b = [[1, 2], [3, 4]]
->>> matrix_mul(m_a, m_b)
+>>> lazy_matrix_mul(m_a, m_b)
 Traceback (most recent call last):
 ...
 ValueError: Scalar operands are not allowed, use '*' instead
 
 >>> m_a = 'invalid'
 >>> m_b = 'not a list'
->>> matrix_mul(m_a, m_b)
+>>> lazy_matrix_mul(m_a, m_b)
 Traceback (most recent call last):
 ...
 ValueError: Scalar operands are not allowed, use '*' instead
@@ -31,42 +35,43 @@ ValueError: Scalar operands are not allowed, use '*' instead
 Traceback (most recent call last):
 ...
 TypeError: Object arrays are not currently supported
+
 # Test invalid input: m_a not a list of lists
 >>> m_a = [1, 2, 3]
 >>> m_b = [[1, 2], [3, 4]]
->>> matrix_mul(m_a, m_b)
+>>> lazy_matrix_mul(m_a, m_b)
 Traceback (most recent call last):
 ...
-TypeError: m_a must be a list of lists
+ValueError: shapes (3,) and (2,2) not aligned: 3 (dim 0) != 2 (dim 0)
 
 # Test invalid input: m_a empty
 >>> m_a = []
 >>> m_b = [[1, 2], [3, 4]]
->>> matrix_mul(m_a, m_b)
+>>> lazy_matrix_mul(m_a, m_b)
 Traceback (most recent call last):
 ...
-ValueError: m_a can't be empty
+ValueError: shapes (0,) and (2,2) not aligned: 0 (dim 0) != 2 (dim 0)
 
 # Test invalid input: m_a contains non-integer elements
 >>> m_a = [[1, 2], [3, 'a']]
 >>> m_b = [[1, 2], [3, 4]]
->>> matrix_mul(m_a, m_b)
+>>> lazy_matrix_mul(m_a, m_b)
 Traceback (most recent call last):
 ...
-TypeError: m_a should contain only integers or floats
+TypeError: invalid data type for einsum
 
 # Test invalid input: m_a not a rectangle
 >>> m_a = [[1, 2], [3, 4, 5]]
 >>> m_b = [[1, 2], [3, 4]]
->>> matrix_mul(m_a, m_b)
+>>> lazy_matrix_mul(m_a, m_b)
 Traceback (most recent call last):
 ...
-TypeError: each row of m_a must be of the same size
+ValueError: setting an array element with a sequence.
 
 # Test invalid input: m_a and m_b cannot be multiplied
 >>> m_b = [[1, 2], [3, 4]]
 >>> m_a = [[1, 2, 3], [4, 5, 6]]
->>> matrix_mul(m_a, m_b)
+>>> lazy_matrix_mul(m_a, m_b)
 Traceback (most recent call last):
 ...
-ValueError: m_a and m_b can't be multiplied
+ValueError: shapes (2,3) and (2,2) not aligned: 3 (dim 1) != 2 (dim 0)
