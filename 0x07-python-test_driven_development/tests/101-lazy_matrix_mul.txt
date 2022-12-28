@@ -18,8 +18,19 @@ True
 >>> matrix_mul(m_a, m_b)
 Traceback (most recent call last):
 ...
-TypeError: m_a must be a list
+ValueError: Scalar operands are not allowed, use '*' instead
 
+>>> m_a = 'invalid'
+>>> m_b = 'not a list'
+>>> matrix_mul(m_a, m_b)
+Traceback (most recent call last):
+...
+ValueError: Scalar operands are not allowed, use '*' instead
+
+>>> print(lazy_matrix_mul(None, None))
+Traceback (most recent call last):
+...
+TypeError: Object arrays are not currently supported
 # Test invalid input: m_a not a list of lists
 >>> m_a = [1, 2, 3]
 >>> m_b = [[1, 2], [3, 4]]
