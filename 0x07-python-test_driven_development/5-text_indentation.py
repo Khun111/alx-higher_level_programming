@@ -1,27 +1,27 @@
 #!/usr/bin/python3
+'''Module for text indentation'''
+
+
 def text_indentation(text):
-    """This module prints a text with 2 new lines after each of these
-    characters: ., ? and :
+    '''Funtion for text indentation
+
     Args:
-        text (str): string to print
-    Raises:
-        TypeError: test must be a string
-    """
-    if (type(text) is not str):
+        text: string to print
+    Raise:
+         TypeError if not string
+    '''
+    if not isinstance(text, str):
         raise TypeError("text must be a string")
 
-    i = 0
-    for _ in range(len(text)):
-        if (i <= len(text) - 1):
-            print(text[i], end="")
-            if (text[i] == "." or text[i] == "?" or text[i] == ":"):
-                print()
-                print()
-                if (i < len(text) - 1 and text[i + 1] == " "):
-                    i += 1
-                    while (text[i] == " "):
-                        i += 1
-                else:
-                    i += 1
+    indent = False
+    for char in text:
+        if char in ['.', '?', ':']:
+            print(char)
+            print()
+            indent = True
+        else:
+            if indent and char == ' ':
+                continue
             else:
-                i += 1
+                indent = False
+                print(char, end='')
