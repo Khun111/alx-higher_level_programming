@@ -59,9 +59,11 @@ class Rectangle:
         shapeinst = 'Rectangle(' + str(self.__width) + \
             ' , ' + str(self.__height) + ')'
         return shapeinst
+
     def __del__(self):
         type(self).number_of_instances -= 1
         print('Bye rectangle...')
+
     def bigger_or_equal(rect_1, rect_2):
         if not isinstance(rect_1, Rectangle):
             raise TypeError('rect_1 must be an instance of Rectangle')

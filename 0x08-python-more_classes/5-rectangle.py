@@ -56,5 +56,6 @@ class Rectangle:
         shapeinst = 'Rectangle(' + str(self.__width) + \
             ' , ' + str(self.__height) + ')'
         return shapeinst
+
     def __del__(self):
         print('Bye rectangle...')
