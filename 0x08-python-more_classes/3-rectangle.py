@@ -40,3 +40,14 @@ class Rectangle:
         if self.__width == 0 or self.__height == 0:
             return 0
         return ((self.__height + self.__width) * 2)
+
+    def __str__(self):
+        if self.__width == 0 or self.__height == 0:
+            return ""
+        shape = []
+        for i in range(self.__height):
+            if i != self.__height - 1:
+                shape.append(self.__width * '#' + '\n')
+            else:
+                shape.append(self.__width * '#')
+        return (''.join(shape))

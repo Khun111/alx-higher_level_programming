@@ -4,8 +4,11 @@
 
 class Rectangle:
     '''Class to define a Rectangle'''
+    number_of_instances = 0
+    print_symbol = '#'
 
     def __init__(self, width=0, height=0):
+        type(self).number_of_instances += 1
         self.__width = width
         self.__height = height
 
@@ -40,3 +43,22 @@ class Rectangle:
         if self.__width == 0 or self.__height == 0:
             return 0
         return ((self.__height + self.__width) * 2)
+
+    def __str__(self):
+        if self.__width == 0 or self.__height == 0:
+            return ""
+        shape = []
+        for i in range(self.__height):
+            if i != self.__height - 1:
+                shape.append(self.__width * str(self.print_symbol) + '\n')
+            else:
+                shape.append(self.__width * str(self.print_symbol))
+        return (''.join(shape))
+
+    def __repr__(self):
+        shapeinst = 'Rectangle(' + str(self.__width) + \
+            ' , ' + str(self.__height) + ')'
+        return shapeinst
+    def __del__(self):
+        type(self).number_of_instances -= 1
+        print('Bye rectangle...')
