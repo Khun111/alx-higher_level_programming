@@ -1,6 +1,7 @@
 #!/usr/bin/python3
+'''Module for Locked Class'''
+
+
 class LockedClass:
-    def __setattr__(self, name, value):
-        if name != "first_name":
-            raise AttributeError("'LockedClass' object has no attribute '{}'".format(name))
-        self.__dict__[name] = value
+    '''Only allow the first_name attr'''
+    __slots__ = ['first_name']
