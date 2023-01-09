@@ -1,18 +1,11 @@
 #!/usr/bin/python3
-add_attribute = __import__('101-add_attribute').add_attribute
+inherits_from = __import__('4-inherits_from').inherits_from
 
+a = True
+if inherits_from(a, int):
+    print("{} inherited from class {}".format(a, int.__name__))
+if inherits_from(a, bool):
+    print("{} inherited from class {}".format(a, bool.__name__))
+if inherits_from(a, object):
+    print("{} inherited from class {}".format(a, object.__name__))
 
-class MyClass():
-    pass
-
-
-mc = MyClass()
-add_attribute(mc, "name", "John")
-print(mc.name)
-
-try:
-    a = "My String"
-    add_attribute(a, "name", "Bob")
-    print(a.name)
-except Exception as e:
-    print("[{}] {}".format(e.__class__.__name__, e))
