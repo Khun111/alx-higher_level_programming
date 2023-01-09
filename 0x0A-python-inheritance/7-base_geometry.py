@@ -10,7 +10,7 @@ class BaseGeometry:
         raise Exception('area() is not implemented')
 
     def integer_validator(self, name, value):
-        '''Function to calidate value entered'''
+        '''Function to validate value entered'''
         if type(value) != int:
             raise TypeError(f'{name} must be an integer')
         if value <= 0:
