@@ -76,7 +76,7 @@ the JSON string representation of list_objs to a file'''
                 else:
                     fields = ['id', 'size', 'x', 'y']
                 written = csv.DictWriter(my_file, fieldnames=fields)
-                [written.writerow(inst.to_dictionary) for inst in list_objs]
+                [written.writerow(inst.to_dictionary()) for inst in list_objs] 
     @classmethod
     def load_from_file_csv(cls):
         '''Classmethod that returns a list of instances'''
@@ -90,7 +90,7 @@ the JSON string representation of list_objs to a file'''
                     else:
                         fields = ['id', 'size', 'x', 'y']
                     csv_r = csv.DictReader(csv_f, fieldnames=fields)
-                    dict_li = [dict([k, int(v)] for k, v in row.items) for row in csv_r]
+                    dict_li = [dict([k, int(v)] for k, v in row.items()) for row in csv_r]
                 
                 return [cls.create(**x) for x in dict_li]
         except IOError:
