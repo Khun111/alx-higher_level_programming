@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 '''Module for Rectangle class that inherits from Base'''
-from .base import Base
+from base import Base
 
 
 class Rectangle(Base):
