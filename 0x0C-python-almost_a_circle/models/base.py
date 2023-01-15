@@ -55,17 +55,19 @@ with all attributes already set'''
     @classmethod
     def load_from_file(cls):
         '''Classmethod that returns a list of instances'''
-        with open(f'{cls.__name__}.json', 'r') as json_f:
-            if not json_f:
-                return []
-            loaded_l = Base.from_json_string(json_f.read())
-        return [cls.create(**x) for x in loaded_l]
-
+        try:
+            with open(f'{cls.__name__}.json', 'r') as json_f:
+                if not json_f:
+                    return []
+                loaded_l = Base.from_json_string(json_f.read())
+            return [cls.create(**x) for x in loaded_l]
+        except IOError:
+            return []
     @classmethod
     def save_to_file_csv(cls, list_objs):
         '''Classmethod (cls, list_objs): that writes\
 the JSON string representation of list_objs to a file'''
-        with open(f'{cls.__name__}.json', 'w', newline='') as my_file:
+        with open(f'{cls.__name__}.csv', 'w', newline='') as my_file:
             if list_objs is None:
                 my_file.write('[]')
             else:
@@ -74,14 +76,12 @@ the JSON string representation of list_objs to a file'''
                 else:
                     fields = ['id', 'size', 'x', 'y']
                 written = csv.DictWriter(my_file, fieldnames=fields)
-                for row in list_objs:
-                    written.writerow(row.to_dictionary())
-
+                [written.writerow(inst.to_dictionary) for inst in list_objs]
     @classmethod
     def load_from_file_csv(cls):
         '''Classmethod that returns a list of instances'''
         try:
-            with open(f'{cls.__name__}.json', 'r', newline='') as csv_f:
+            with open(f'{cls.__name__}.csv', 'r') as csv_f:
                 if not csv_f:
                     return []
                 else:
@@ -90,8 +90,8 @@ the JSON string representation of list_objs to a file'''
                     else:
                         fields = ['id', 'size', 'x', 'y']
                     csv_r = csv.DictReader(csv_f, fieldnames=fields)
-                    dict_li = [dict([k, int(v)] for k, v in row.items())
-                    for row in csv_r]
+                    dict_li = [dict([k, int(v)] for k, v in row.items) for row in csv_r]
+                
                 return [cls.create(**x) for x in dict_li]
         except IOError:
             return []
