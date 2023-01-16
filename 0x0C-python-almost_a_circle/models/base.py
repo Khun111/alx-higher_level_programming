@@ -2,6 +2,7 @@
 '''This Module creates the Base class to handle ids'''
 import json
 import csv
+import turtle
 
 
 class Base:
@@ -98,3 +99,34 @@ the JSON string representation of list_objs to a file'''
                 return [cls.create(**x) for x in dict_li]
         except IOError:
             return []
+
+    @staticmethod
+    def draw(list_rectangles, list_squares):
+        turtle.setup(width=800, height=600)
+        turtle.screensize(800, 600)
+        turtle.bgcolor("white")
+
+        for rect in list_rectangles:
+            turtle.pencolor("blue")
+            turtle.penup()
+            turtle.setpos(rect.x, rect.y)
+            turtle.pendown()
+            turtle.forward(rect.width)
+            turtle.right(90)
+            turtle.forward(rect.height)
+            turtle.right(90)
+            turtle.forward(rect.width)
+            turtle.right(90)
+            turtle.forward(rect.height)
+
+        for square in list_squares:
+            turtle.pencolor("green")
+            turtle.penup()
+            turtle.setpos(square.x, square.y)
+            turtle.pendown()
+            for _ in range(4):
+                turtle.forward(square.size)
+                turtle.right(90)
+
+        turtle.exitonclick()
+

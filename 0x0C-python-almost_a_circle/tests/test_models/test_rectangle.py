@@ -206,7 +206,6 @@ class TestRectangle(unittest.TestCase):
     def test_save_to_file_csv(self):
         pass
 
-##### others ####################
 
 class TestRectangle_instantiation(unittest.TestCase):
     """Unittests for testing instantiation of the Rectangle class."""
