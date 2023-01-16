@@ -2,7 +2,7 @@
 '''This Module creates the Base class to handle ids'''
 import json
 import csv
-# import turtle
+import turtle
 
 
 class Base:
@@ -103,8 +103,6 @@ the JSON string representation of list_objs to a file'''
         except IOError:
             return []
 
-
-'''
     @staticmethod
     def draw(list_rectangles, list_squares):
         turtle.setup(width=800, height=600)
@@ -134,4 +132,3 @@ the JSON string representation of list_objs to a file'''
                 turtle.right(90)
 
         turtle.exitonclick()
-'''
