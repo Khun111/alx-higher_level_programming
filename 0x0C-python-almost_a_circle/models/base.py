@@ -129,4 +129,3 @@ the JSON string representation of list_objs to a file'''
                 turtle.right(90)
 
         turtle.exitonclick()
-
