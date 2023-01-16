@@ -106,6 +106,26 @@ each attribute using args and kwargs'''
                 self.__y = args[4]
         elif kwargs and len(kwargs) != 0:
             for k, v in kwargs.items():
+                if k == 'width':
+                    if type(v) != int:
+                        raise TypeError('width must be an integer')
+                    if v <= 0:
+                        raise ValueError('width must be > 0')
+                if k == 'height':
+                    if type(v) != int:
+                        raise TypeError('height must be an integer')
+                    if v <= 0:
+                        raise ValueError('height must be > 0')
+                if k == 'x':
+                    if type(v) != int:
+                        raise TypeError('x must be an integer')
+                    if v < 0:
+                        raise ValueError('x must be >= 0')
+                if k == 'y':
+                    if type(v) != int:
+                        raise TypeError('y must be an integer')
+                    if v < 0:
+                        raise ValueError('y must be >= 0')
                 setattr(self, k, v)
 
     def to_dictionary(self):
