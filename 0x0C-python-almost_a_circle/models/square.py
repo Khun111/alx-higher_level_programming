@@ -27,9 +27,6 @@ class Square(Rectangle):
         '''Method that assigns an argument to \
 each attribute using args and kwargs'''
         if args and len(args) != 0:
-            for arg in args:
-                if arg is None:
-                    self.__init__(size, x=0, y=0, id=None)
             if len(args) > 0:
                 self.id = args[0]
             if len(args) > 1:

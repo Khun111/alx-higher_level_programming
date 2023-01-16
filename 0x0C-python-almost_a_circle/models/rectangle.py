@@ -91,18 +91,31 @@ Rectangle instance with the character'''
         '''Method that assigns an argument to \
 each attribute using args and kwargs'''
         if args and len(args) != 0:
-            for arg in args:
-                if arg is None:
-                    self.__init__(width, height, x=0, y=0, id=None)
             if len(args) > 0:
                 self.id = args[0]
             if len(args) > 1:
+                if type(args[1]) != int:
+                    raise TypeError('width must be an integer')
+                if args[1] <= 0:
+                    raise ValueError('width must be > 0')
                 self.__width = args[1]
             if len(args) > 2:
+                if type(args[2]) != int:
+                    raise TypeError('height must be an integer')
+                if args[2] <= 0:
+                    raise ValueError('height must be > 0')
                 self.__height = args[2]
             if len(args) > 3:
+                if type(args[3]) != int:
+                    raise TypeError('x must be an integer')
+                if args[3] < 0:
+                    raise ValueError('x must be >= 0')
                 self.__x = args[3]
             if len(args) > 4:
+                if type(args[4]) != int:
+                    raise TypeError('y must be an integer')
+                if args[4] < 0:
+                    raise ValueError('y must be >= 0')
                 self.__y = args[4]
         elif kwargs and len(kwargs) != 0:
             for k, v in kwargs.items():
