@@ -68,7 +68,7 @@ with all attributes already set'''
         '''Classmethod (cls, list_objs): that writes\
 the JSON string representation of list_objs to a file'''
         with open(f'{cls.__name__}.csv', 'w', newline='') as my_file:
-            if list_objs is None:
+            if list_objs is None or len(list_objs) == 0:
                 my_file.write('[]')
             else:
                 if cls.__name__ == 'Rectangle':

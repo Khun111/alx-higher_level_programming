@@ -1,17 +1,16 @@
 #!/usr/bin/python3
-"""unit test class"""
-import unittest
+"""Modules for unit tests to test Base Class"""
+from unittest import TestCase
 import os
 from models.base import Base
 from models.rectangle import Rectangle
 from models.square import Square
 
 
-class TestBase(unittest.TestCase):
-    """Test base class"""
+class Test_Base(TestCase):
+    """Test class to test base"""
 
-    def test_initialization_values(self):
-        """test initialization"""
+    def test_instantiation_atrr(self):
         b1 = Base()
         self.assertEqual(b1.id, 1)
         b2 = Base()
@@ -23,7 +22,6 @@ class TestBase(unittest.TestCase):
         b5 = Base()
         self.assertEqual(b5.id, 4)
 
-############################## others #################################333
 
     def test_no_arg(self):
         b1 = Base()
@@ -91,7 +89,7 @@ class TestBase(unittest.TestCase):
             Base(1, 2)
 
 
-class TestBase_to_json_string(unittest.TestCase):
+class TestBase_to_json_string(TestCase):
     """Unittests for testing to_json_string method of Base class."""
 
     def test_to_json_string_rectangle_type(self):
@@ -137,7 +135,7 @@ class TestBase_to_json_string(unittest.TestCase):
             Base.to_json_string([], 1)
 
 
-class TestBase_save_to_file(unittest.TestCase):
+class TestBase_save_to_file(TestCase):
     """Unittests for testing save_to_file method of Base class."""
 
     @classmethod
@@ -215,7 +213,7 @@ class TestBase_save_to_file(unittest.TestCase):
             Square.save_to_file([], 1)
 
 
-class TestBase_from_json_string(unittest.TestCase):
+class TestBase_from_json_string(TestCase):
     """Unittests for testing from_json_string method of Base class."""
 
     def test_from_json_string_type(self):
@@ -269,7 +267,7 @@ class TestBase_from_json_string(unittest.TestCase):
             Base.from_json_string([], 1)
 
 
-class TestBase_create(unittest.TestCase):
+class TestBase_create(TestCase):
     """Unittests for testing create method of Base class."""
 
     def test_create_rectangle_original(self):
@@ -321,7 +319,7 @@ class TestBase_create(unittest.TestCase):
         self.assertNotEqual(s1, s2)
 
 
-class TestBase_load_from_file(unittest.TestCase):
+class TestBase_load_from_file(TestCase):
     """Unittests for testing load_from_file_method of Base class."""
 
     @classmethod
@@ -387,7 +385,7 @@ class TestBase_load_from_file(unittest.TestCase):
             Base.load_from_file([], 1)
 
 
-class TestBase_save_to_file_csv(unittest.TestCase):
+class TestBase_save_to_file_csv(TestCase):
     """Unittests for testing save_to_file_csv method of Base class."""
 
     @classmethod
@@ -465,7 +463,7 @@ class TestBase_save_to_file_csv(unittest.TestCase):
             Square.save_to_file_csv([], 1)
 
 
-class TestBase_load_from_file_csv(unittest.TestCase):
+class TestBase_load_from_file_csv(TestCase):
     """Unittests for testing load_from_file_csv method of Base class."""
 
     @classmethod
