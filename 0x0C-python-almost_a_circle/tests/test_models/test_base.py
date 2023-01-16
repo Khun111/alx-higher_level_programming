@@ -10,7 +10,7 @@ from models.square import Square
 class TestBase(unittest.TestCase):
     """Class to test base"""
 
-    def test_instantiation_attr(self):
+    def test_initialization_values(self):
         """test instantiation of classes"""
         b1 = Base()
         self.assertEqual(b1.id, 1)
