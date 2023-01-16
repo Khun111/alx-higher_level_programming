@@ -2,7 +2,7 @@
 '''This Module creates the Base class to handle ids'''
 import json
 import csv
-import turtle
+#import turtle
 
 
 class Base:
@@ -49,7 +49,10 @@ the JSON string representation json_string:'''
         '''Classmethod that returns an instance\
 with all attributes already set'''
         if dictionary and dictionary != {}:
-            c = cls(5, 5)
+            if cls.__name__ == 'Rectangle':
+                c = cls(5, 3)
+            else:
+                c = cls(5)
             c.update(**dictionary)
         return c
 
@@ -100,6 +103,8 @@ the JSON string representation of list_objs to a file'''
         except IOError:
             return []
 
+
+'''
     @staticmethod
     def draw(list_rectangles, list_squares):
         turtle.setup(width=800, height=600)
@@ -129,3 +134,4 @@ the JSON string representation of list_objs to a file'''
                 turtle.right(90)
 
         turtle.exitonclick()
+'''
