@@ -1,16 +1,17 @@
 #!/usr/bin/python3
-"""Modules for unit tests to test Base Class"""
-from unittest import TestCase
+"""Module for unit tests for Base Class"""
+import unittest
 import os
 from models.base import Base
 from models.rectangle import Rectangle
 from models.square import Square
 
 
-class Test_Base(TestCase):
-    """Test class to test base"""
+class TestBase(unittest.TestCase):
+    """Class to test base"""
 
-    def test_instantiation_atrr(self):
+    def test_instantiation_attr(self):
+        """test instantiation of classes"""
         b1 = Base()
         self.assertEqual(b1.id, 1)
         b2 = Base()
@@ -89,7 +90,7 @@ class Test_Base(TestCase):
             Base(1, 2)
 
 
-class TestBase_to_json_string(TestCase):
+class TestBase_to_json_string(unittest.TestCase):
     """Unittests for testing to_json_string method of Base class."""
 
     def test_to_json_string_rectangle_type(self):
@@ -135,7 +136,7 @@ class TestBase_to_json_string(TestCase):
             Base.to_json_string([], 1)
 
 
-class TestBase_save_to_file(TestCase):
+class TestBase_save_to_file(unittest.TestCase):
     """Unittests for testing save_to_file method of Base class."""
 
     @classmethod
@@ -213,7 +214,7 @@ class TestBase_save_to_file(TestCase):
             Square.save_to_file([], 1)
 
 
-class TestBase_from_json_string(TestCase):
+class TestBase_from_json_string(unittest.TestCase):
     """Unittests for testing from_json_string method of Base class."""
 
     def test_from_json_string_type(self):
@@ -267,7 +268,7 @@ class TestBase_from_json_string(TestCase):
             Base.from_json_string([], 1)
 
 
-class TestBase_create(TestCase):
+class TestBase_create(unittest.TestCase):
     """Unittests for testing create method of Base class."""
 
     def test_create_rectangle_original(self):
@@ -319,7 +320,7 @@ class TestBase_create(TestCase):
         self.assertNotEqual(s1, s2)
 
 
-class TestBase_load_from_file(TestCase):
+class TestBase_load_from_file(unittest.TestCase):
     """Unittests for testing load_from_file_method of Base class."""
 
     @classmethod
@@ -385,7 +386,7 @@ class TestBase_load_from_file(TestCase):
             Base.load_from_file([], 1)
 
 
-class TestBase_save_to_file_csv(TestCase):
+class TestBase_save_to_file_csv(unittest.TestCase):
     """Unittests for testing save_to_file_csv method of Base class."""
 
     @classmethod
@@ -463,7 +464,7 @@ class TestBase_save_to_file_csv(TestCase):
             Square.save_to_file_csv([], 1)
 
 
-class TestBase_load_from_file_csv(TestCase):
+class TestBase_load_from_file_csv(unittest.TestCase):
     """Unittests for testing load_from_file_csv method of Base class."""
 
     @classmethod
@@ -527,4 +528,3 @@ class TestBase_load_from_file_csv(TestCase):
     def test_load_from_file_csv_more_than_one_arg(self):
         with self.assertRaises(TypeError):
             Base.load_from_file_csv([], 1)
-
