@@ -1,2 +1,1 @@
-# alx-higher_level_programming
-Currently on python
+Higher Level Programming with Python, JS and SQL
