@@ -2,7 +2,8 @@
 let arg = process.argv[2], i = 0, j = 0;
 if ((isNaN(arg))) console.log('Missing size');
 while ((i++ < arg)) {
-  while ((j++ < arg)) process.stdout.write('X');
+  let row = ''
+  while ((j++ < arg)) row += ('X');
   j = 0;
-  process.stdout.write('\n');
+  console.log(row);
 }
