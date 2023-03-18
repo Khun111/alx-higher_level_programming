@@ -18,4 +18,4 @@ if __name__ == "__main__":
         print(query.id)
     elif not query:
         print('Not found')
-session.close()
+    session.close()

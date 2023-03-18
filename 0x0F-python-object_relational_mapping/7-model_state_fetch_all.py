@@ -15,4 +15,4 @@ if __name__ == "__main__":
 
     for state in session.query(State).all():
         print(f'{state.id}: {state.name}')
-session.close()
+    session.close()
