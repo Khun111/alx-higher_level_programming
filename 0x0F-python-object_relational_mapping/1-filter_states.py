@@ -8,8 +8,7 @@ if __name__ == '__main__':
         user=sys.argv[1], passwd=sys.argv[2],
         db=sys.argv[3])
     cur = con.cursor()
-    query = 'SELECT * FROM states WHERE name LIKE "N%" ORDER BY id'
+    query = 'SELECT * FROM states'
     cur.execute(query)
     lists = cur.fetchall()
-    for row in lists:
-        print(row)
+    [print(row) for row in lists if row[1][0] == 'N']
