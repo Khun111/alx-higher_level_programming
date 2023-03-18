@@ -13,8 +13,9 @@ if __name__ == "__main__":
     Session = sessionmaker(bind=engine)
     session = Session()
 
+    state = session.query(State).first()
     if State == 'None':
         print('Nothing')
-    state = session.query(State).first()
-    print(f'{state.id}: {state.name}')
+    else:
+        print(f'{state.id}: {state.name}')
     session.close()
