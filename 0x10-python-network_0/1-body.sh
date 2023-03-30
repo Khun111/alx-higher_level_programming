@@ -1,6 +1,3 @@
 #!/bin/bash
-# Takes in a URL, sends a request to that URL, and displays the size of the body of the response
-RES=$(curl -w '%{http_code}' -o /dev/null -s $1)
-if [ $RES == 200 ]; then
-  curl -s $1
-fi
+#takes in a URL, sends a GET request to the URL, and displays the body of the response
+curl -w '%{http_code}' -o /dev/null -s $1 | grep 200 -q && curl -s $1 || true
