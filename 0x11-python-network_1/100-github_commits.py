@@ -9,6 +9,6 @@ if __name__ == '__main__':
     res = requests.get(url)
     res = res.json()
     for details in res[:10]:
-        sha = res['sha']
-        author = res['commit']['author']['name']
+        sha = res.get('sha')
+        author = res.get('commit').get('author').get('name')
         print(sha + ': ' + author)
