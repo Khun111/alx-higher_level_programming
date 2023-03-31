@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-'''Sends POST request with email data'''
+'''Handles error codes'''
 import urllib.request
 import urllib.error
 import sys
