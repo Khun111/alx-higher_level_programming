@@ -7,4 +7,5 @@ if __name__ == '__main__':
     pat = sys.argv[2]
     url = 'https://api.github.com/user'
     res = requests.post(url, auth=(name, pat))
-    print(res.json().get('id')) if res else print('None')
+    print(res.json().get('i\
+id')i) if res.status_code == 200 else print('None')
