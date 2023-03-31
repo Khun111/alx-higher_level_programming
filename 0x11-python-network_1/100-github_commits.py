@@ -3,8 +3,8 @@
 import requests
 import sys
 if __name__ == '__main__':
-    user = sys.argv[1]
-    repo = sys.argv[2]
+    user = sys.argv[2]
+    repo = sys.argv[1]
     url = f'https://api.github.com/repos/{user}/{repo}/commits'
     res = requests.get(url)
     res = res.json()
