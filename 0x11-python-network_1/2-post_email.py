@@ -1,8 +1,8 @@
 #!/usr/bin/python3
+'''Sends POST request with email data'''
 import urllib.request
 import urllib.parse
 import sys
-'''Sends POST request with email data'''
 if __name__ == '__main__':
     url = sys.argv[1]
     user_mail = sys.argv[2]
