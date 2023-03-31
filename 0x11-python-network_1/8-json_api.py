@@ -1,9 +1,9 @@
 #!/usr/bin/python3
-'''Handle error codes with requests'''
+'''Testing json format of response'''
 import requests
 import sys
 if __name__ == '__main__':
-    alpha = sys.argv[1] if len(sys.argv) == 2 else ''
+    alpha = '' if len(sys.argv) == 1 else sys.argv[1]
     url = 'http://0.0.0.0:5000/search_user'
     q_data = {'q': alpha}
     res = requests.post(url, data=q_data)
