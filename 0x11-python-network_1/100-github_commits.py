@@ -8,7 +8,7 @@ if __name__ == '__main__':
     url = f'https://api.github.com/repos/{user}/{repo}/commits'
     res = requests.get(url)
     res = res.json()
-    for details in res[:10]:
+    for details in res[:10][::-1]:
         sha = details['sha']
         author = details['commit']['author']['name']
         print(sha + ': ' + author)
