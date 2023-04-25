@@ -3,7 +3,7 @@ const request = require('request');
 const completedTasks = {}
 
 request.get(process.argv[2], (error, response, body) => {
-  if (error && response.statusCode !== 200) {
+  if (error || response.statusCode !== 200) {
     console.error(error);
   }
   todos = JSON.parse(body);
@@ -12,6 +12,6 @@ request.get(process.argv[2], (error, response, body) => {
           completedTasks[todo.userId] ? completedTasks[todo.userId]++ : completedTasks[todo.userId] = 1;
           }
       })
+  console.log(completedTasks)
   }
 );
-console.log(completedTasks)
