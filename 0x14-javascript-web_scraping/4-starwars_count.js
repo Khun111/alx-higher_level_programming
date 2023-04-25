@@ -1,3 +1,13 @@
 #!/usr/bin/node
 const request = require('request');
-request.get('https://swapi-api.alx-tools.com/api/people/18', (error, response, body) => { error || response.statusCode !== 200 ? console.error(error) : console.log(JSON.parse(body).films.length); });
+const castUrl = 'https://swapi-api.alx-tools.com/api/people/18/';
+let count = 0;
+request.get(process.argv[2], (error, response, body) => {
+  if (error) console.error(error);
+  const data = JSON.parse(body).results;
+  data.forEach((movie) => {
+    if (movie.characters.some((url) => url === castUrl)) count++;
+  }
+  );
+  console.log(count);
+});
