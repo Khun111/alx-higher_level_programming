@@ -1,2 +1,4 @@
-const element = $('header');
-element.css('color', 'red');
+$(document).ready(function () {
+  $('header').css('color', '#FF0000');
+});
+
